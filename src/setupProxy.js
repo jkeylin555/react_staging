@@ -5,5 +5,10 @@ module.exports = function(app) {
             target: "http://localhost:5001",
             changeOrigin: true,
             pathRewrite: { "^/api2": "" }
+        }),
+        createProxyMiddleware("/api2", {
+            target: "http://localhost:5001",
+            changeOrigin: true,
+            pathRewrite: { "^/api2": "" }
         }));
 };
