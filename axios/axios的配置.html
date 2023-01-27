@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+</head>
+<body>
+    <div>
+        <h2>基本使用</h2>
+        <button id="btn">发送GET请求</button>
+        <button id="btn2">发送POST请求</button>
+        <button id="btn3">发送PUT请求</button>
+        <button id="btn4">发送DELETE请求</button>
+    </div>
+    <script>
+        const btns = document.querySelectorAll('button');
+        console.log(btns);
+        btns[2].onclick = function () {
+            axios({
+                method: 'put',
+                url: 'http://localhost:3000/posts/4',
+                data: {
+                    "title": "foo",
+                    "author": "shijie"
+                }
+            }).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error);
+            });
+        };
+    </script>
+</body>
+</html>
